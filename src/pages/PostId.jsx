@@ -15,21 +15,17 @@ const PostId = () => {
     }
 
     useEffect(() => {
-
         (async () => {
             const data = await fetchPostData(id);
             setPostData(data);
-
-            console.log(data.children);
-            formParent()
         })();
         // eslint-disable-next-line
     }, []);
 
+
     const createNest = (item) => {
         if (!item)
             return document.createElement('span');
-
 
         let wrapper = document.createElement('div');
         wrapper.setAttribute('class', 'ml-8 mt-10');
@@ -47,24 +43,22 @@ const PostId = () => {
             wrapper.appendChild(result);
         }
 
-        // console.log(wrapper);
         return wrapper;
     }
 
-    const formParent = () => {
-        let result = document.createElement('div');
+    const populateData = () => {
+        const content = document.getElementById('content');
 
         postData?.children.forEach((item) => {
             let res = createNest(item);
-            result.appendChild(res);
+            content.appendChild(res);
         });
-        console.log(result);
-
-        const content = document.getElementById('content');
-        content.appendChild(result);
-
-        // return result;
     }
+
+    useEffect(() => {
+        populateData();
+        // eslint-disable-next-line
+    }, [postData])
 
     return (
 
@@ -87,17 +81,7 @@ const PostId = () => {
 
                 {/* Comments */}
                 <div id='content'>
-                    {/* {
-                        postData.children.map((item) => (
-                            // <div className='ml-8'>
-                            //     <p>{item?.author}</p>
-                            //     <p>
-                            //         {item?.text}
-                            //     </p>
-                            // </div>
-                            // createNest(item)
-                        ))
-                    } */}
+
                 </div>
             </div>
 

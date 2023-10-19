@@ -12,10 +12,8 @@ const Home = () => {
         (async () => {
             let response = await fetch(`http://hn.algolia.com/api/v1/search?query=${query}`);
             response = await response.json();
-            console.log(response.hits);
 
             setResults(response.hits);
-
         })();
     }, [query])
 

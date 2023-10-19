@@ -5,22 +5,17 @@ const SearchField = ({ setQuery }) => {
     const queryRef = useRef("");
 
     function handleSubmit(e) {
-        e.preventDefault();
-        setQuery(queryRef.current.value)
+        setQuery(e.target.value);
     }
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder='Enter the query'
-                    ref={queryRef}
-                />
-                <button type="submit">
-                    Search
-                </button>
-            </form>
+            <input
+                type="text"
+                placeholder='Enter the query'
+                onChange={handleSubmit}
+                ref={queryRef}
+            />
         </div>
     )
 }

@@ -20,7 +20,7 @@ const SearchResultsList = ({ results }) => {
                 {
                     results.map(elem => (
                         <div
-                            className='border-2 my-3 w-fit'
+                            className='border-2 my-3 w-fit cursor-pointer'
                             onClick={() => handleClick(elem)}
                         >
                             <h2>{elem.title}</h2>
