@@ -9,8 +9,9 @@ const SearchField = ({ setQuery }) => {
     }
 
     return (
-        <div>
+        <div className='bg-orange-nav h-[3.5rem] flex items-center pl-4 fixed top-0 w-11/12 max-w-maxContent'>
             <input
+                className='w-2/3 h-3/5 px-4 rounded-md'
                 type="text"
                 placeholder='Enter the query'
                 onChange={handleSubmit}

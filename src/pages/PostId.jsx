@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import dateFormatter from '../utils/dateFormatter';
 
 const PostId = () => {
 
@@ -28,21 +29,22 @@ const PostId = () => {
             return document.createElement('span');
 
         let wrapper = document.createElement('div');
-        wrapper.setAttribute('class', 'ml-8 mt-10');
+        wrapper.setAttribute('class', 'ml-5 mt-6');
 
         let authorName = document.createElement('p');
-        authorName.innerHTML = item?.author;
+        authorName.innerHTML = `${item?.author} on ${dateFormatter(item.created_at)}`;
+        authorName.setAttribute('class', 'text-xs text-slate-500');
         wrapper.appendChild(authorName);
-
+        
         let text = document.createElement('p');
         text.innerHTML = item?.text;
+        text.setAttribute('class', 'text-sm whitespace-break-spaces');
         wrapper.appendChild(text);
 
         for (let i = 0; i < item.children.length; i++) {
             let result = createNest(item.children[i]);
             wrapper.appendChild(result);
         }
-
         return wrapper;
     }
 
@@ -57,6 +59,7 @@ const PostId = () => {
 
     useEffect(() => {
         populateData();
+        console.log(postData);
         // eslint-disable-next-line
     }, [postData])
 
@@ -66,21 +69,16 @@ const PostId = () => {
 
             <div>NO DATA</div> :
 
-            <div>
-                <div>
-                    <h4 className='text-2xl font-semibold'>{postData.title}</h4>
-                    <span className='text-sm font-bold text-slate-400'>
-                        {postData.points} points
+            <div className='w-11/12 max-w-maxContent mx-auto bg-container'>
+                <div className='bg-orange-nav pl-4'>
+                    <h4 className='text-2xl font-extrabold text-white'>{postData.title}</h4>
+                    <span className='text-sm font-medium text-slate-100'>
+                        {postData.points} points by {postData.author} on {dateFormatter(postData.created_at)}
                     </span>
                 </div>
 
-                <div>
-                    {postData.author}
-                </div>
-
-
                 {/* Comments */}
-                <div id='content'>
+                <div id='content' className='overflow-hidden'>
 
                 </div>
             </div>

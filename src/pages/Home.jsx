@@ -18,7 +18,7 @@ const Home = () => {
     }, [query])
 
     return (
-        <div>
+        <div className='w-11/12 max-w-maxContent mx-auto'>
             <SearchField setQuery={setQuery} />
             <SearchResultsList results={results} />
         </div>
