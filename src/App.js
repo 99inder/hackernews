@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import Home from './pages/Home';
-import PostId from './pages/PostId';
+import PostPage from './pages/PostPage';
 
 const App = () => {
 
@@ -9,7 +9,7 @@ const App = () => {
         <div className='min-w-sreen min-h-screen overflow-hidden'>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/postId/:id' element={<PostId />} />
+                <Route path='/postId/:id' element={<PostPage />} />
             </Routes>
         </div>
     )

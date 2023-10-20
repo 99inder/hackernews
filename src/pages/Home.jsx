@@ -7,7 +7,7 @@ const Home = () => {
     const [query, setQuery] = useState("");
 
     return (
-        <div className='w-11/12 max-w-maxContent mx-auto h-full'>
+        <div className='w-screen md:w-11/12 max-w-maxContent mx-auto h-full'>
             <SearchField setQuery={setQuery} />
             <SearchResultsList query={query} />
         </div>

@@ -22,7 +22,7 @@ const SearchResultsList = ({ query }) => {
     return (
         isLoading ?
             <Spinner /> :
-            <div className=' w-full bg-container px-3 h-[calc(100vh)]'>
+            <div className=' w-full bg-container md:px-3 h-[calc(100vh)]'>
                 {
                     isError ?
                         <div className="text-2xl text-center font-bold py-20 text-slate-700 flex items-center justify-center h-full">
@@ -35,7 +35,7 @@ const SearchResultsList = ({ query }) => {
                                 No Results Found
                             </div>
                             :
-                            <div className=' w-full bg-container py-5 px-3 mt-[3.5rem]'>
+                            <div className=' w-full bg-container py-5 md:px-3 mt-[3.5rem]'>
                                 {
                                     results.map(elem => (
                                         elem.title &&

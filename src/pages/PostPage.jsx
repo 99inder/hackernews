@@ -5,7 +5,7 @@ import commentsNestCreator from '../utils/commentsNestCreator';
 import Spinner from '../components/common/Spinner';
 import { fetchPostData } from '../services/fetchDataApi';
 
-const PostId = () => {
+const PostPage = () => {
 
     const [postData, setPostData] = useState(null);
 
@@ -41,7 +41,7 @@ const PostId = () => {
                         No Data Found
                     </div> :
 
-                    <div className='w-11/12 max-w-maxContent mx-auto bg-container'>
+                    <div className='w-full md:w-11/12 max-w-maxContent mx-auto bg-container'>
                         <div className='bg-orange-nav pl-4'>
                             <h4 className='text-2xl font-extrabold text-white'>{postData.title}</h4>
                             <span className='text-sm font-medium text-slate-100'>
@@ -66,4 +66,4 @@ const PostId = () => {
     )
 }
 
-export default PostId
+export default PostPage

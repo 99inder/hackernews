@@ -1,9 +1,11 @@
+import { APIs } from "./APIs";
+
 export const fetchTopics = async (query, setResults, setIsLoading, setIsError) => {
 
     setIsLoading(true);
 
     try {
-        let response = await fetch(`http://hn.algolia.com/api/v1/search?query=${query}`);
+        let response = await fetch(`${APIs.fetchTopicsApi}${query}`);
         response = await response.json();
 
         setResults(response.hits);
@@ -23,7 +25,7 @@ export const fetchPostData = async (id, setPostData, setIsLoading, setIsError) =
     setIsLoading(true);
 
     try {
-        let response = await fetch(`http://hn.algolia.com/api/v1/items/${id}`);
+        let response = await fetch(`${APIs.fetchPostDataApi}${id}`);
         response = await response.json();
 
         setPostData(response);
