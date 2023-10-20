@@ -5,7 +5,7 @@ const createNest = (item) => {
         return document.createElement('span');
 
     let wrapper = document.createElement('div');
-    wrapper.setAttribute('class', 'ml-5 mt-6');
+    wrapper.setAttribute('class', 'pl-5 pt-6');
 
     let authorName = document.createElement('p');
     authorName.innerHTML = `${item?.author} on ${dateFormatter(item.created_at)}`;
@@ -20,16 +20,20 @@ const createNest = (item) => {
     for (let i = 0; i < item.children.length; i++) {
         let result = createNest(item.children[i]);
         wrapper.appendChild(result);
+        result.classList.add("border-dashed");
+        result.classList.add("border-l-[1px]");
+        result.classList.add("border-black");
+        console.log(...wrapper.classList);
     }
     return wrapper;
 }
 
 const commentsNestCreator = (div, postData) => {
 
-    
 
-    if(!div || !postData || !postData.children || postData?.children.length === 0)
-        return ;
+
+    if (!div || !postData || !postData.children || postData?.children.length === 0)
+        return;
 
     postData?.children.forEach((item) => {
         let res = createNest(item);

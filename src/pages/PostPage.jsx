@@ -55,7 +55,7 @@ const PostPage = () => {
                                 </div> :
 
                                 // Comments
-                                <div id='content' className='overflow-hidden'>
+                                <div id='content' className='overflow-hidden pb-6'>
 
                                 </div>
                         }

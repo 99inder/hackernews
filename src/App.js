@@ -6,7 +6,7 @@ import PostPage from './pages/PostPage';
 const App = () => {
 
     return (
-        <div className='min-w-sreen min-h-screen overflow-hidden'>
+        <div className='min-w-sreen min-h-screen overflow-x-hidden'>
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/postId/:id' element={<PostPage />} />
